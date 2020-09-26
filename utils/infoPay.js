@@ -36,6 +36,6 @@ const calculatePayment = (data) => {
     }
   });
   const amoungToPay = payment.reduce((a, b) => a + b);
-  console.log(`The amount to pay ${information[0]} is:${amoungToPay} USD`);
+  return `The amount to pay ${information[0]} is:${amoungToPay} USD`;
 };
 module.exports = { getPayCuantity, getTimeWork, getPayments, calculatePayment };

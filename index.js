@@ -11,6 +11,6 @@ const { calculatePayment } = require("./utils/infoPay");
   });
 
   for await (const line of info) {
-    calculatePayment(line);
+    console.log(calculatePayment(line));
   }
 })();
