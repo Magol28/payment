@@ -21,4 +21,21 @@ const getPayments = (startTime, endTime, dayType) => {
     getPayCuantity(dayType, 2, timeRange3)
   );
 };
-module.exports = { getPayCuantity, getTimeWork, getPayments };
+
+const calculatePayment = (data) => {
+  const information = data.split("=");
+  const days = information[1].split(",");
+  const payment = days.map((day) => {
+    const dayName = day.substring(0, 2);
+    const range = day.substring(2, 13).split("-");
+
+    if (dayName === "SA" || dayName === "SU") {
+      return getPayments(range[0], range[1], true);
+    } else {
+      return getPayments(range[0], range[1], false);
+    }
+  });
+  const amoungToPay = payment.reduce((a, b) => a + b);
+  console.log(`The amount to pay ${information[0]} is:${amoungToPay} USD`);
+};
+module.exports = { getPayCuantity, getTimeWork, getPayments, calculatePayment };
