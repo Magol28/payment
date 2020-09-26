@@ -46,7 +46,8 @@ my solution is very simple.
 > I created 23 tests for this application
 ### Instructions how to run the program locally.
 - Clone the repository
-- run yarn install to install all dependencies for the project.- You can use either "yarn start" to run the proyecto or node index, inside of the folder.
+- run yarn install to install all dependencies for the project.
+- You can use either "yarn start" to run the proyect or node index, inside of the folder.
 - You can use yarn test to run all test.
 
 The txt file is inside of assets, its name is data.txt
