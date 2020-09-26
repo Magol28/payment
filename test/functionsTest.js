@@ -1,5 +1,9 @@
 const { assert } = require("chai");
-const { getPayCuantity, getTimeWork } = require("../utils/infoPay");
+const {
+  getPayCuantity,
+  getTimeWork,
+  calculatePayment,
+} = require("../utils/infoPay");
 const { timesWorkRange } = require("../utils/dataFormat");
 describe("get paid for weekday payments ", () => {
   it("if we set a weekday work from 00:01 to 8:00 i will return 200", () => {
@@ -113,10 +117,18 @@ describe("get an object to explain what range are using the working time ", () =
   });
 });
 describe("get paid for employees ", () => {
-  it("if we set ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00  i will return 215", () => {
-    assert.equal(getPayCuantity(false, 0, 8), 200);
+  it("if we set ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00  i will return The amount to pay ASTRID is:85 USD", () => {
+    assert.equal(
+      calculatePayment("ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00"),
+      "The amount to pay ASTRID is:85 USD"
+    );
   });
-  it("if we set a weekday work from 00:01 to 8:05 i will return 226.0825", () => {
-    assert.equal(getPayCuantity(false, 0, 8.0833), 202.08249999999998);
+  it("if we set   RENE=MO10:00-12:00,TU10:00-12:00,TH01:00-03:00,SA14:00-18:00,SU20:00-21:00  i will return The amount to pay The amount to pay RENE is:215 USD", () => {
+    assert.equal(
+      calculatePayment(
+        "RENE=MO10:00-12:00,TU10:00-12:00,TH01:00-03:00,SA14:00-18:00,SU20:00-21:00"
+      ),
+      "The amount to pay RENE is:215 USD"
+    );
   });
 });
