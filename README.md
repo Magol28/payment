@@ -36,11 +36,11 @@ Output: indicate how much the employee has to be paid
 > I used yarn as a  package manager.
 ### Solution
 my solution is very simple.
--Read the txt file, line by line
--Each line calls a function to calculate the payment.
--The "calculatePayment" function separates the name from the information and decides what type of day it is, and sends the getPayments function the start and end time of the job, for each day.
--The getPayments function gets how many hours you work in each range of hours, and calculates how much money it is. 
--Finally, just add up all the values and return the amount for each employee
+- Read the txt file, line by line
+- Each line calls a function to calculate the payment.
+- The "calculatePayment" function separates the name from the information and decides what type of day it is, and sends the getPayments function the start and end time of the job, for each day.
+- The getPayments function gets how many hours you work in each range of hours, and calculates how much money it is. 
+- Finally, just add up all the values and return the amount for each employee
 ### Testing 
 > I used mocha with chai like a testing framework.
 > I created 23 tests for this application
